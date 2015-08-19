@@ -1,0 +1,13 @@
+#!/bin/bash
+APP=askbot
+db_user=$APP
+db_name=$APP
+root_pwd=$(sudo cat /etc/yunohost/mysql)
+domain=$(sudo yunohost app setting $APP domain)
+
+mysql -u root -p$root_pwd -e "DROP DATABASE $db_name ; DROP USER $db_user@localhost ;"
+sudo rm -rf /var/www/$APP_inst
+sudo rm -f /etc/nginx/conf.d/$domain.d/$APP.conf
+
+sudo userdel $APP > /dev/null 2>&1
+sudo service nginx reload
