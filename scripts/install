@@ -75,14 +75,14 @@ sudo mkdir -p $final_path
 
 cd $final_path
 cd ..
-sudo /opt/askbot/bin/$APP3-setup -n $APP2 -e3 -d $db_user -u $db_user -p $db_pwd 
+sudo /opt/$APP/bin/$APP3-setup -n $APP2 -e3 -d $db_user -u $db_user -p $db_pwd 
 cd $APP2
 #askbot-setup -n mydjangosite -e3 -d askbot -u askbot -p MXFYvsVwCOaiBZLvWhPFcCox
-sudo python manage.py collectstatic --noinput
+sudo source /opt/$APP/bin/activate && sudo python manage.py collectstatic --noinput
 sudo chown -R $APP:www-data $final_path
 sudo chmod -R g+w $final_path/askbo*/upfiles
 sudo chmod -R g+w $final_path/log
-sudo python manage.py syncdb --noinput
+sudo source /opt/$APP/bin/activate && sudo python manage.py syncdb --noinput
 #sudo python manage.py migrate
 cd $old_pwd
 sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$APP.conf
