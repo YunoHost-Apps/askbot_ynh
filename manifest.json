@@ -1,16 +1,27 @@
 {
     "name": "Askbot",
     "id": "askbot",
+    "packaging_format": 1,
+    "version": "0.7.53.1~ynh1",
     "description": {
         "en": "Askbot is a Questions & Answers (Q&A) software",
         "fr": "Askbot est un système de Questions et Réponses"
     },
+    "license": "GPL-3.0-or-later",
     "url": "http://askbot.org/",
     "maintainer": {
         "name": "ljf",
-        "email": "valentin@grimaud.me"
+        "email": "ljf+askbot_ynh@reflexlibre.net",
+        "url": "https://reflexlibre.net"
     },
-    "multi_instance": "true",
+    "url": "https://askbot.com/",
+    "requirements": {
+        "yunohost": ">= 2.7.2"
+    },
+    "multi_instance": true,
+    "services": [
+        "nginx"
+    ],
     "arguments": {
         "install" : [
             {
