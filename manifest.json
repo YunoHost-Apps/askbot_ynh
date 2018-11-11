@@ -10,10 +10,14 @@
     "license": "GPL-3.0-or-later",
     "url": "http://askbot.org/",
     "maintainer": {
+        "name": "-",
+        "email": "-"
+    },
+    "previous_maintainers":[{
         "name": "ljf",
         "email": "ljf+askbot_ynh@reflexlibre.net",
         "url": "https://reflexlibre.net"
-    },
+    }],
     "url": "https://askbot.com/",
     "requirements": {
         "yunohost": ">= 2.7.2"
